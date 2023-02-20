@@ -9,3 +9,7 @@ Route::setRoute('/', function () {
 Route::setRoute('/news', function () {
     include "public/news.php";
 });
+
+Route::setRoute('/404', function () {
+    include "public/404.php";
+});

@@ -28,6 +28,11 @@ class Route
         $action = trim($action, '/');
         $callback = self::$routes[$action];
 
+        if ($callback == null) {
+            $action = "404";
+            $callback = self::$routes[$action];
+        }
+
         echo call_user_func($callback);
     }
 

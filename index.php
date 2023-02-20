@@ -9,5 +9,3 @@ Route::route();
 
 $action = $_SERVER['REQUEST_URI'];
 Route::dispatch($action);
-
-Route::getRoutes();
