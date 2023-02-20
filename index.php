@@ -3,5 +3,11 @@
 require './Fw/init.php';
 
 use Fw\Core\Application;
+use Fw\Core\Route;
 
-echo "init";
+Route::route();
+
+$action = $_SERVER['REQUEST_URI'];
+Route::dispatch($action);
+
+Route::getRoutes();
