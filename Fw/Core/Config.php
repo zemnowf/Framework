@@ -10,9 +10,13 @@ class Config
     {
     }
 
-    public static function get(string $path)
+    public static function configure()
     {
         require_once 'Fw/config.php';
+    }
+
+    public static function get(string $path)
+    {
 
         $keys = explode('/', $path);
         $config = self::$configs;
