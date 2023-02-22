@@ -17,15 +17,12 @@ class Application
     {
         Route::route();
         Config::configure();
-        $this->header();
-        $this->footer();
+        $this->pager = InstanceContainer::get(Page::class);
     }
 
     public function header()
     {
         $this->startBuffer();
-
-        //fix
         include self::TEMPLATES . Config::get(self::TEMPLATE) . self::HEADER;
     }
 
@@ -53,9 +50,8 @@ class Application
     {
         $content = ob_get_clean();
         $this->buffer = false;
-
-        //fix
-        return $content;
+        $replaces = $this->pager->getAllReplaces();
+        return str_replace(array_keys($replaces), $replaces, $content);
     }
 
 }

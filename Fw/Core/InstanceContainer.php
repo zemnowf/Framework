@@ -11,5 +11,7 @@ class InstanceContainer
         if (self::$instances[$class] == null) {
             self::$instances[$class] = new $class;
         }
+
+        return self::$instances[$class];
     }
 }
