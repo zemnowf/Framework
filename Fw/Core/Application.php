@@ -4,7 +4,7 @@ namespace Fw\Core;
 
 class Application
 {
-    const TEMPLATES = '../templates';
+    const TEMPLATES = 'Fw/templates/';
     const TEMPLATE = 'template/id';
     const HEADER = '/header.php';
     const FOOTER = '/footer.php';
