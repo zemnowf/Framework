@@ -8,3 +8,5 @@
     <title>Framework</title>
 </head>
 <body>
+<p>header</p>
+<h1>Welcome to page</h1>

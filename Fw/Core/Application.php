@@ -18,6 +18,7 @@ class Application
         Route::route();
         Config::configure();
         $this->header();
+        $this->footer();
     }
 
     public function header()
