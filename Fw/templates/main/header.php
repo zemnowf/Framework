@@ -1,3 +1,16 @@
+<?php
+
+use Fw\Core\Application;
+use Fw\Core\InstanceContainer;
+use Fw\Core\Route;
+
+$application = InstanceContainer::get(Application::class);
+
+$action = $_SERVER['REQUEST_URI'];
+Route::dispatch($action);
+?>
+
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -5,8 +18,9 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Framework</title>
+    <?= $application->getPage()->showHead(); ?>
+    <title><?= $application->getPage()->showProperty('title'); ?>></title>
 </head>
 <body>
-<p>header</p>
-<h1>Welcome to page</h1>
+<header><p>Header</p></header>
+<main>

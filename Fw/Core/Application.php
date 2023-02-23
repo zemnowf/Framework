@@ -20,6 +20,11 @@ class Application
         $this->pager = InstanceContainer::get(Page::class);
     }
 
+    public function getPage()
+    {
+        return $this->pager;
+    }
+
     public function header()
     {
         $this->startBuffer();
