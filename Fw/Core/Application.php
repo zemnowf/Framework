@@ -20,6 +20,7 @@ class Application
     private $request;
     private $server;
     private $session;
+    private array $components;
 
     public function __construct()
     {
@@ -102,5 +103,30 @@ class Application
         $replaces = $this->pager->getAllReplaces();
         return str_replace(array_keys($replaces), $replaces, $content);
     }
+
+    public function includeComponent(string $component, string $template, array $params)
+    {
+        $componentPath = 'Fw/Components/' . str_replace(':', '/', $component);
+        $componentClassPath = $componentPath . '/class.php';
+        include $componentClassPath;
+
+        [$componentTitle, $className] = explode(':', $component);
+
+        $classNameElements = explode('.', $className);
+
+        foreach ($classNameElements as $element) {
+            $element = ucfirst($element);
+        }
+
+        $className = implode('', $classNameElements);
+
+        $componentClass = 'Fw\Components\\' . $componentTitle . '\\' . $className;
+        $this->components[$component] = $componentClass;
+
+        $componentInstance = new $componentClass($component, $template, $params, $componentPath);
+
+        $componentInstance->executeComponent();
+    }
+
 
 }
