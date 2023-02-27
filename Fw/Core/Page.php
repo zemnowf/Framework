@@ -52,7 +52,7 @@ class Page
     public function getAllReplaces(): array
     {
         $allReplaces[self::FW_MACRO_JS] = implode(array_map(
-            fn($src) => "<script src=\"{$src}\"></script>\r\n", $this->scripts));
+            fn($src) => "<script src=\"{$src}\"></script>", $this->scripts));
 
         $allReplaces[self::FW_MACRO_CSS] = implode(array_map(
             fn($link) => "<link href=\"{$link}\" rel=\"stylesheet\">", $this->links));
