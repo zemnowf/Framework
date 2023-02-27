@@ -73,7 +73,7 @@ class Application
     public function header()
     {
         $this->startBuffer();
-        include self::TEMPLATES . Config::get(self::TEMPLATE) . self::HEADER;
+        include TEMPLATES . Config::get(self::TEMPLATE) . self::HEADER;
     }
 
     public function footer()
