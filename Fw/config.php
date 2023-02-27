@@ -1,5 +1,12 @@
 <?php
 
-use Fw\Core\Config;
-
-Config::setConfig("db", "login", "root");
+return [
+    'db' =>
+        [
+            'login' => 'root'
+        ],
+    'template' =>
+        [
+            'id' => 'main'
+        ]
+];
