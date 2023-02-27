@@ -9,6 +9,7 @@ html, body {
 body {
     display: flex;
     flex-direction: column;
+    background-color: #0a53be;
 }
 
 header {

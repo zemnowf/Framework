@@ -20,6 +20,7 @@ class Template
         $this->__path = $component->__path . '/templates/' . $templateId . '/';
         $this->__relativePath = './assets/' . str_replace(':', '/', $this->component->id) . '/';
         $this->application = InstanceContainer::get(Application::class);
+        $this->map = [];
     }
 
     public function render(string $page = "template")
