@@ -12,7 +12,7 @@ class Config
 
     public static function configure()
     {
-        require_once 'Fw/config.php';
+        self::$configs =require_once 'Fw/config.php';
     }
 
     public static function get(string $path)
@@ -29,8 +29,4 @@ class Config
 
     }
 
-    public static function setConfig($config, $data, $variable)
-    {
-        self::$configs[$config][$data] = $variable;
-    }
 }
