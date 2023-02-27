@@ -47,7 +47,7 @@ class Page
     public function showProperty(string $id)
     {
         if (!is_null($this->getProperty($id))) {
-            echo $this->properties["FW_PAGE_PROPERTY_{$id}"];
+            echo $this->getProperty($id);
         } else echo "";
     }
 
