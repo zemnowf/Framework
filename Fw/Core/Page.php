@@ -15,23 +15,21 @@ class Page
 
     public function addJs(string $src)
     {
-        if (!in_array($src, $this->scripts)) {
+        if (!isset($this->scripts[$src])) {
             $this->scripts[] = $src;
         }
     }
 
     public function addCss(string $link)
     {
-        if (!in_array($link, $this->links)) {
+        if (!isset($this->links[$link])) {
             $this->links[] = $link;
         }
     }
 
     public function addString(string $string)
     {
-        if (!in_array($string, $this->strings)) {
-            $this->strings[] = $string;
-        }
+        $this->strings[] = $string;
     }
 
     public function setProperty(string $id, $value)
@@ -47,7 +45,7 @@ class Page
     public function showProperty(string $id)
     {
         if (!is_null($this->getProperty($id))) {
-            echo $this->properties["FW_PAGE_PROPERTY_{$id}"];
+            echo $this->getProperty($id);
         } else echo "";
     }
 
