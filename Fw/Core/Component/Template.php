@@ -25,7 +25,7 @@ class Template
     public function render(string $page = "template")
     {
         $resultModifier = $this->__path . 'result_modifier.php';
-        $componentEpilogue = $this->__path . 'component_epilogue';
+        $componentEpilogue = $this->__path . 'component_epilogue.php';
         $page = $this->__path . $page . '.php';
         $script = $this->__path . 'script.js';
         $style = $this->__path . 'style.css';

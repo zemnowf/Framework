@@ -15,8 +15,8 @@ abstract class Base
         $this->result = array();
         $this->id = $id;
         $this->params = $params;
-        $this->template = new Template($templateId, $this);
         $this->__path = $__path;
+        $this->template = new Template($templateId, $this);
     }
 
     abstract public function executeComponent();

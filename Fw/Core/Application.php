@@ -106,7 +106,7 @@ class Application
 
     public function includeComponent(string $component, string $template, array $params)
     {
-        $componentPath = 'Fw/Components/' . str_replace(':', '/', $component);
+        $componentPath = COMPONENTS_ROOT . str_replace(':', '/', $component);
         $componentClassPath = $componentPath . '/class.php';
         include $componentClassPath;
 
