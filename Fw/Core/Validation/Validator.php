@@ -4,7 +4,7 @@ namespace Fw\Core\Validation;
 
 abstract class Validator
 {
-    private $rule = null;
+    protected $rule = null;
 
     public function __construct($rule) {
         $this->rule = $rule;
