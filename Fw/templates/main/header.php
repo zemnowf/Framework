@@ -26,12 +26,3 @@ $application = InstanceContainer::get(Application::class);
 $action = $_SERVER['REQUEST_URI'];
 Route::dispatch($action);
 
-$application->includeComponent(
-    'Fw:element.list',
-    'default',
-    [
-        "sort" => "id",
-        "limit" => 10,
-        "show_title" => "N"
-    ]
-);

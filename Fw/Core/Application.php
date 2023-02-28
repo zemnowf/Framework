@@ -106,27 +106,36 @@ class Application
 
     public function includeComponent(string $component, string $template, array $params)
     {
-        $componentPath = COMPONENTS_ROOT . str_replace(':', '/', $component);
-        $componentClassPath = $componentPath . '/class.php';
-        include $componentClassPath;
 
-        [$componentTitle, $className] = explode(':', $component);
+        try {
+            $componentPath = COMPONENTS_ROOT . str_replace(':', '/', $component);
+            if (!empty($this->components[$component])) {
+                $componentClass = $this->components[$component];
+            } else {
+                $componentClassPath = $componentPath . '/class.php';
+                include $componentClassPath;
 
-        $classNameElements = explode('.', $className);
+                [$componentTitle, $className] = explode(':', $component);
 
-        foreach ($classNameElements as $element) {
-            $element = ucfirst($element);
+                $classNameElements = explode('.', $className);
+
+                foreach ($classNameElements as $element) {
+                    $element = ucfirst($element);
+                }
+
+                $className = implode('', $classNameElements);
+
+                $componentClass = 'Fw\Components\\' . $componentTitle . '\\' . $className;
+                $this->components[$component] = $componentClass;
+            }
+
+            $componentInstance = new $componentClass($component, $template, $params, $componentPath);
+
+            $componentInstance->executeComponent();
+
+        } catch (\Exception $e) {
+            echo $e->getMessage();
         }
-
-        $className = implode('', $classNameElements);
-
-        $componentClass = 'Fw\Components\\' . $componentTitle . '\\' . $className;
-        $this->components[$component] = $componentClass;
-
-        $componentInstance = new $componentClass($component, $template, $params, $componentPath);
-
-        $componentInstance->executeComponent();
     }
-
 
 }
