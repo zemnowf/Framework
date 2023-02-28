@@ -21,15 +21,5 @@ $application->includeComponent(
     ]
 );
 
-$application->includeComponent(
-    'Fw:element.list',
-    'default',
-    [
-        "sort" => "id",
-        "limit" => 10,
-        "show_title" => "N"
-    ]
-);
-
 $application->footer();
 
