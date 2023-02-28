@@ -19,10 +19,14 @@ $application = InstanceContainer::get(Application::class);
         <title><? $application->getPage()->showProperty('title'); ?>></title>
     </head>
     <body>
-    <header><p>Header</p></header>
-    <main>
+    <header class="bg-light text-center">
+        <div class="container p-4">
+            <p>Header</p>
+        </div>
+    </header>
+    <main class="container p-5 text-center">
 
 <?php
+
 $action = $_SERVER['REQUEST_URI'];
 Route::dispatch($action);
-

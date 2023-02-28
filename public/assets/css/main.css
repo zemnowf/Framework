@@ -23,3 +23,7 @@ main {
 footer {
     height: 25px;
 }
+
+.window--full-form {
+    background-color: #99e5f3;
+}
