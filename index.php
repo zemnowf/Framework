@@ -7,7 +7,9 @@ use Fw\Core\InstanceContainer;
 
 
 $application = InstanceContainer::get(Application::class);
-$application->getPage()->addCss('public/assets/css/main.css');
+
+$application->getPage()->addCss('public/assets/css/bootstrap.min.css');
+$application->getPage()->addJs('public/assets/js/bootstrap.bundle.min.js');
 $application->getPage()->setProperty('title', 'Framework');
 $application->header();
 
