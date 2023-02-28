@@ -39,6 +39,12 @@ class Template
         if (file_exists($componentEpilogue)) {
             include $componentEpilogue;
         }
+        if (file_exists($script)) {
+            $this->application->getPage()->addCss($style);
+        }
+        if (file_exists($style)) {
+            $this->application->getPage()->addJs($style);
+        }
 
     }
 
