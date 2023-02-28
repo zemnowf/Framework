@@ -31,9 +31,23 @@ class Template
         $script = $this->__path . 'script.js';
         $style = $this->__path . 'style.css';
 
-        include $resultModifier;
-        include $page;
-        include $componentEpilogue;
+        if (file_exists($resultModifier)) {
+            include $resultModifier;
+        }
+        if (file_exists($page)) {
+            include $page;
+        }
+        if (file_exists($componentEpilogue)) {
+            include $componentEpilogue;
+        }
+        if (file_exists($script)) {
+            $this->application->getPage()->addCss($style);
+        }
+        if (file_exists($style)) {
+            $this->application->getPage()->addJs($style);
+        }
+
     }
+
 
 }
