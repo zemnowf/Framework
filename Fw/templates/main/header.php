@@ -22,6 +22,7 @@ $application = InstanceContainer::get(Application::class);
     <header><p>Header</p></header>
     <main>
 
+
 <?php
 $action = $_SERVER['REQUEST_URI'];
 Route::dispatch($action);
