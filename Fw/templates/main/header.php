@@ -8,7 +8,6 @@ $application = InstanceContainer::get(Application::class);
 
 ?>
 
-
     <!doctype html>
     <html lang="en">
     <head>
@@ -26,4 +25,3 @@ $application = InstanceContainer::get(Application::class);
 <?php
 $action = $_SERVER['REQUEST_URI'];
 Route::dispatch($action);
-
