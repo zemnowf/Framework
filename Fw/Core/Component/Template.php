@@ -30,6 +30,13 @@ class Template
         $script = $this->__path . 'script.js';
         $style = $this->__path . 'style.css';
 
+        var_dump($style);
+        echo $style . "<br>";
+        $stylePath = explode('Framework\Fw/', $style);
+        echo $stylePath[1] . "<br>";
+        $style = $stylePath[1];
+        var_dump($style);
+
         if (file_exists($resultModifier)) {
             include $resultModifier;
         }
@@ -39,11 +46,11 @@ class Template
         if (file_exists($componentEpilogue)) {
             include $componentEpilogue;
         }
-        if (file_exists($script)) {
+        if (file_exists($style)) {
             $this->application->getPage()->addCss($style);
         }
-        if (file_exists($style)) {
-            $this->application->getPage()->addJs($style);
+        if (file_exists($script)) {
+            $this->application->getPage()->addJs($script);
         }
 
     }
