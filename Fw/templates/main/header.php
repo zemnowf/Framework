@@ -6,8 +6,6 @@ use Fw\Core\Route;
 
 $application = InstanceContainer::get(Application::class);
 
-$action = $_SERVER['REQUEST_URI'];
-Route::dispatch($action);
 ?>
 
 
