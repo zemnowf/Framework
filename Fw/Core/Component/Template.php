@@ -27,8 +27,8 @@ class Template
         $resultModifier = $this->__path . 'result_modifier.php';
         $componentEpilogue = $this->__path . 'component_epilogue.php';
         $page = $this->__path . $page . '.php';
-        $script = $this->__path . 'script.js';
-        $style = $this->__path . 'style.css';
+        $style = explode('Framework\\', ($this->__path . 'style.css'))[1];
+        $script = explode('Framework\\', ($this->__path . 'script.js'))[1];
 
         if (file_exists($resultModifier)) {
             include $resultModifier;
@@ -39,11 +39,11 @@ class Template
         if (file_exists($componentEpilogue)) {
             include $componentEpilogue;
         }
-        if (file_exists($script)) {
+        if (file_exists($style)) {
             $this->application->getPage()->addCss($style);
         }
-        if (file_exists($style)) {
-            $this->application->getPage()->addJs($style);
+        if (file_exists($script)) {
+            $this->application->getPage()->addJs($script);
         }
 
     }

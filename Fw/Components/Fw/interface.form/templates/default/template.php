@@ -7,7 +7,7 @@ $textAreaMap = $form->getTextAreaMap();
 ?>
 
 
-<form action="<?= $formParams['action'] ?>" method="<?= $formParams['method'] ?>">
+<form class="window--full-form" action="<?= $formParams['action'] ?>" method="<?= $formParams['method'] ?>">
     <?php
     foreach ($inputMap as $key => $element) {
         echo "<div class='mb-3'>"

@@ -1,25 +1,5 @@
-html, body {
-    height: 100%;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    text-align: center;
-}
-
-body {
-    display: flex;
-    flex-direction: column;
-}
-
-header {
-    height: 40px;
-}
-
-main {
-    flex: auto;
-    background-color: #fffaaa;
-}
-
-footer {
-    height: 25px;
+p {
+    color: navy;
+    text-indent: 30px;
+    text-transform: uppercase;
 }
