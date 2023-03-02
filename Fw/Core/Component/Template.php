@@ -27,15 +27,8 @@ class Template
         $resultModifier = $this->__path . 'result_modifier.php';
         $componentEpilogue = $this->__path . 'component_epilogue.php';
         $page = $this->__path . $page . '.php';
-        $script = $this->__path . 'script.js';
-        $style = $this->__path . 'style.css';
-
-        var_dump($style);
-        echo $style . "<br>";
-        $stylePath = explode('Framework\Fw/', $style);
-        echo $stylePath[1] . "<br>";
-        $style = $stylePath[1];
-        var_dump($style);
+        $style = explode('Framework\\', ($this->__path . 'style.css'))[1];
+        $script = explode('Framework\\', ($this->__path . 'script.js'))[1];
 
         if (file_exists($resultModifier)) {
             include $resultModifier;
